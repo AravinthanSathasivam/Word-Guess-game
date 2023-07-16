@@ -3,6 +3,7 @@ const Router = express.Router();
 
 const WordModel = require('../models/word');
 
+// Create a new word
 Router.post('/', async (request, response) => {
   try {
     const { word } = request.body;
@@ -29,6 +30,7 @@ Router.post('/', async (request, response) => {
   }
 });
 
+// Get all words
 Router.get('/', async (request, response) => {
   try {
     const words = await WordModel.find({});
@@ -43,6 +45,7 @@ Router.get('/', async (request, response) => {
   }
 });
 
+// Get a word by ID
 Router.get('/:id', async (request, response) => {
   const { id } = request.params;
 
@@ -65,6 +68,7 @@ Router.get('/:id', async (request, response) => {
   }
 });
 
+// Update a word by ID
 Router.put('/:id', async (request, response) => {
   const { id } = request.params;
   const { word } = request.body;
@@ -98,6 +102,7 @@ Router.put('/:id', async (request, response) => {
   }
 });
 
+// Delete a word by ID
 Router.delete('/:id', async (request, response) => {
   const { id } = request.params;
 

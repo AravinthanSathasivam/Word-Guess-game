@@ -14,6 +14,7 @@ const isLogged = (request, response, next) => {
   }
 };
 
+// Create a new game
 Router.post('/', async (request, response) => {
   try {
     const word = await WordModel.aggregate([{ $sample: { size: 1 } }]);
@@ -45,6 +46,7 @@ Router.post('/', async (request, response) => {
   }
 });
 
+// Get a game by ID
 Router.get('/:id', async (request, response) => {
   const { id } = request.params;
 
@@ -67,6 +69,7 @@ Router.get('/:id', async (request, response) => {
   }
 });
 
+// Verify a user's word guess
 Router.post('/verify', isLogged, async (request, response) => {
   try {
     const { word: userWord } = request.body;
