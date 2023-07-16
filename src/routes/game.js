@@ -67,7 +67,7 @@ Router.get('/:id', async (request, response) => {
   }
 });
 
-Router.post('/verif', isLogged, async (request, response) => {
+Router.post('/verify', isLogged, async (request, response) => {
   try {
     const { word: userWord } = request.body;
 

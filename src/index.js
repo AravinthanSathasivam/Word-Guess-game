@@ -4,6 +4,7 @@ const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const mongoose = require ('mongoose');
+const cors = require('cors');
 const session = require('express-session')
 require('dotenv').config();
 
@@ -19,6 +20,7 @@ const WordRoutes = require('./routes/word');
 const AuthRoutes = require('./routes/auth');
 
 const App = express();
+App.use(cors());
 App.use(helmet());
 App.use(morgan('common'));
 App.use(express.json());
